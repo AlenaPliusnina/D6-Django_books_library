@@ -76,7 +76,7 @@ def publishers(request):
 class AuthorEdit(CreateView):
     model = Author
     form_class = AuthorForm
-    success_url = reverse_lazy('author_list')
+    success_url = reverse_lazy('"p_library:author_list')
     template_name = 'author_edit.html'
 
 
@@ -107,7 +107,7 @@ def author_create_many(request):
                 author_form.save()
 
             #  После чего, переадресуем браузер на список всех авторов.
-            return HttpResponseRedirect(reverse_lazy('author_list'))
+            return HttpResponseRedirect(reverse_lazy('"p_library:author_list'))
 
     #  Если обработчик получил GET запрос, значит в ответ нужно просто "нарисовать" формы.
     else:
@@ -128,7 +128,7 @@ def books_authors_create_many(request):
                 author_form.save()
             for book_form in book_formset:
                 book_form.save()
-            return HttpResponseRedirect(reverse_lazy('author_list'))
+            return HttpResponseRedirect(reverse_lazy('p_library:author_list'))
     else:
         author_formset = AuthorFormSet(prefix='authors')
         book_formset = BookFormSet(prefix='books')
