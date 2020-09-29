@@ -13,8 +13,8 @@
     <ul class="d-flex justify-content-center list-group">
 		{% for friend in friends %}
 		    <li class="list-group-item list-group-item-info">{{ friend.full_name }}:
-				<a href='friend_edith/{{ friend.id }}'>Edith</a>
-				<a href='friend_edith/{{ friend.id }}/delete'>Delete</a>
+				<a class="text-primary" href='friend_edith/{{ friend.id }}'>Edith</a>
+				<a class="text-danger" href='friend_edith/{{ friend.id }}/delete'>Delete</a>
 				<ul>
 					{% for book in friend.book.all %}
 					    <li> {{ book.author }}: "{{ book.title}}".</li>
@@ -24,7 +24,9 @@
 		{% endfor %}
 	</ul>
 
-    <a href="create/">Добавить нового друга</a>
+   <div class="ml-3 mt-3">
+	   <a class="btn btn-primary stretched-link" href="create/">Добавить нового друга</a>
+   </div>
 
 </body>
 </html>
