@@ -14,6 +14,7 @@
 		{% for friend in friends %}
 		    <li class="list-group-item list-group-item-info">{{ friend.full_name }}:
 				<a href='friend_edith/{{ friend.id }}'>Edith</a>
+				<a href='friend_edith/{{ friend.id }}/delete'>Delete</a>
 				<ul>
 					{% for book in friend.book.all %}
 					    <li> {{ book.author }}: "{{ book.title}}".</li>

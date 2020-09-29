@@ -6,7 +6,7 @@ from p_library.models import Publisher
 from p_library.models import Author
 from p_library.models import Friend
 from p_library.forms import AuthorForm, BookForm, FriendForm
-from django.views.generic import CreateView, ListView, UpdateView
+from django.views.generic import CreateView, ListView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from django.forms import formset_factory
 from django.http.response import HttpResponseRedirect
@@ -119,6 +119,13 @@ class FriendUpdate(UpdateView):
     fields = ['full_name', 'book']
     template_name = 'friend_edith.html'
 
+
+class FriendDelete(DeleteView):
+    model = Friend
+    form_class = FriendForm
+    fields = ['full_name']
+    success_url = reverse_lazy('friends_list')
+    template_name = 'friends_delete.html'
 
 
 def author_create_many(request):
