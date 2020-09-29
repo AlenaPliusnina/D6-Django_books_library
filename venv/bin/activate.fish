@@ -29,7 +29,7 @@ end
 # unset irrelevant variables
 deactivate nondestructive
 
-set -gx VIRTUAL_ENV "/Users/alenapliusnina/Desktop/D5-Django_books_library-master/venv"
+set -gx VIRTUAL_ENV "/Volumes/SD/Programming/python/PycharmProjects/D5-Django_books_library-master/venv"
 
 set -gx _OLD_VIRTUAL_PATH $PATH
 set -gx PATH "$VIRTUAL_ENV/bin" $PATH

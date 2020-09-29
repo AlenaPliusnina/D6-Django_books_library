@@ -8,7 +8,7 @@ alias deactivate 'test $?_OLD_VIRTUAL_PATH != 0 && setenv PATH "$_OLD_VIRTUAL_PA
 # Unset irrelevant variables.
 deactivate nondestructive
 
-setenv VIRTUAL_ENV "/Users/alenapliusnina/Desktop/D5-Django_books_library-master/venv"
+setenv VIRTUAL_ENV "/Volumes/SD/Programming/python/PycharmProjects/D5-Django_books_library-master/venv"
 
 set _OLD_VIRTUAL_PATH="$PATH"
 setenv PATH "$VIRTUAL_ENV/bin:$PATH"
