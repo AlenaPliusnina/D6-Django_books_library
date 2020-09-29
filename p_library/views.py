@@ -110,13 +110,13 @@ class FriendEdit(CreateView):
     model = Friend
     form_class = FriendForm
     success_url = reverse_lazy('friends_list')
-    template_name = 'friend_edit.html'
+    template_name = 'friend_edith.html'
 
 
 class FriendUpdate(UpdateView):
     model = Friend
-    success_url = reverse_lazy('p_library:friends_list')
-    fields = ['full_name']
+    success_url = reverse_lazy('friends_list')
+    fields = ['full_name', 'book']
     template_name = 'friend_edith.html'
 
 
