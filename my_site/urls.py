@@ -16,11 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from p_library import views
-from p_library.views import AuthorEdit, AuthorList, author_create_many, books_authors_create_many, friends
+from p_library.views import AuthorEdit, AuthorList, author_create_many, books_authors_create_many, friends, links
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.books_list),
+    path('', views.links),
     path('index/', views.index),
     path('index/book_increment/', views.book_increment),
     path('index/book_decrement/', views.book_decrement),

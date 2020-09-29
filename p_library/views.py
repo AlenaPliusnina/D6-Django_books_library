@@ -12,6 +12,11 @@ from django.forms import formset_factory
 from django.http.response import HttpResponseRedirect
 
 
+def links(request):
+    template = loader.get_template('links.html')
+    return HttpResponse(template.render(request))
+
+
 def books_list(request):
     books = Book.objects.all()
     return HttpResponse(books)
