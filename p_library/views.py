@@ -4,6 +4,7 @@ from django.shortcuts import redirect, render
 from p_library.models import Book
 from p_library.models import Publisher
 from p_library.models import Author
+from p_library.models import Friend
 from p_library.forms import AuthorForm, BookForm
 from django.views.generic import CreateView, ListView
 from django.urls import reverse_lazy
@@ -73,6 +74,18 @@ def publishers(request):
     return HttpResponse(template.render(publishers_data, request))
 
 
+def friends(request):
+    template = loader.get_template('friends.html')
+    friends = Friend.objects.all()
+    books = Book.objects.all()
+    friends_data = {
+        "title": "Список друзей",
+        "friends": friends,
+        "books": books,
+    }
+    return HttpResponse(template.render(friends_data, request))
+
+
 class AuthorEdit(CreateView):
     model = Author
     form_class = AuthorForm
@@ -140,3 +153,5 @@ def books_authors_create_many(request):
             'book_formset': book_formset,
         }
     )
+
+

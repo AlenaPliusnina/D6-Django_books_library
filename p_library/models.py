@@ -28,10 +28,6 @@ class Book(models.Model):
     copy_count = models.SmallIntegerField(default=1)
     price = models.DecimalField(max_digits=19, decimal_places=2)
     publisher = models.ForeignKey(Publisher, on_delete = models.CASCADE, null=True, related_name="publisher")
-    friends = models.ManyToManyField(
-        through='Friend',
-        through_fields='full_name',
-    )
 
     def __str__(self):
         return self.title
@@ -39,11 +35,7 @@ class Book(models.Model):
 
 class Friend(models.Model):
     full_name = models.TextField()
-    book = models.ForeignKey(
-        Book,
-        on_delete=models.CASCADE,
-        related_name="books",
-    )
+    book = models.ManyToManyField(Book, related_name='book')
 
     def __str__(self):
         return self.full_name
