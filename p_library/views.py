@@ -5,8 +5,8 @@ from p_library.models import Book
 from p_library.models import Publisher
 from p_library.models import Author
 from p_library.models import Friend
-from p_library.forms import AuthorForm, BookForm
-from django.views.generic import CreateView, ListView
+from p_library.forms import AuthorForm, BookForm, FriendForm
+from django.views.generic import CreateView, ListView, UpdateView
 from django.urls import reverse_lazy
 from django.forms import formset_factory
 from django.http.response import HttpResponseRedirect
@@ -14,7 +14,10 @@ from django.http.response import HttpResponseRedirect
 
 def links(request):
     template = loader.get_template('links.html')
-    return HttpResponse(template.render(request))
+    data = {
+        "title": "Все роуты проекта",
+    }
+    return HttpResponse(template.render(data, request))
 
 
 def books_list(request):
@@ -101,6 +104,21 @@ class AuthorEdit(CreateView):
 class AuthorList(ListView):
     model = Author
     template_name = 'authors_list.html'
+
+
+class FriendEdit(CreateView):
+    model = Friend
+    form_class = FriendForm
+    success_url = reverse_lazy('friends_list')
+    template_name = 'friend_edit.html'
+
+
+class FriendUpdate(UpdateView):
+    model = Friend
+    success_url = reverse_lazy('p_library:friends_list')
+    fields = ['full_name']
+    template_name = 'friend_edith.html'
+
 
 
 def author_create_many(request):

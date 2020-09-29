@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from p_library import views
-from p_library.views import AuthorEdit, AuthorList, author_create_many, books_authors_create_many, friends, links
+from p_library.views import AuthorEdit, AuthorList, FriendEdit, FriendUpdate, author_create_many, books_authors_create_many
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -29,5 +29,7 @@ urlpatterns = [
     path('authors/', AuthorList.as_view(), name='author_list'),
     path('author/create_many/', author_create_many, name='author_create_many'),
     path('author_book/create_many/', books_authors_create_many, name='author_book_create_many'),
-    path('friends/', views.friends),
+    path('friends/', views.friends, name='friends_list'),
+    path('friends/create/', FriendEdit.as_view(), name='friend_create'),
+    path('friends/friend_edith/<int:pk>/', FriendUpdate.as_view(), name='friend_edith'),
 ]
