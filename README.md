@@ -11,11 +11,13 @@
    env LDFLAGS="-I/usr/local/opt/openssl/include -L/usr/local/opt/openssl/lib" pip install psycopg2==2.8.4      
    Для предотвращения появления ошибки (error: command 'gcc' failed with exit status 1.) при установке зависимостей.
    
-5. Чтбы запустить сервер введите команду: python manage.py runserver
+5. Чтбы запустить сервер введите команду: 
+
+       python manage.py runserver
 
 6. Для входа в администравтивную панель проекта создайте суперпользователя при помощи команды: 
 
-python manage.py createsuperuser
+       python manage.py createsuperuser
 
 При переходе по адресу http://127.0.0.1:8000/ будет пердставлен список роутов проекта:
 
