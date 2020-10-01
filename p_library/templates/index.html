@@ -3,10 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <title>Library</title>
 </head>
 <body class="bg-light">
+    {% extends 'base.html' %}
+
+    {% block content %}
     <h1 class="text-center text-secondary mt-3">Добро пожаловать в {{ title }}.</h1>
     <h4 class="text-center text-secondary mt-2 mb-3">Тут собрано {{ books|length }} книг из моей личной коллекции.</h4>
 
@@ -14,6 +16,7 @@
         <tbody>
             {% for book in books %}
             <tr>
+                <td><img src='{{ MEDIA_URL }}{{ book.image }}' alt="Обложка книги"/></td>
                 <td>{{ book.title }}</td>
                 <td>{{ book.ISBN }}</td>
                 <td>{{ book.description }}</td>
@@ -46,7 +49,9 @@
               {{ forloop.counter }};
             {% endif %}
         {% endfor %}
-    </div>    
+    </div>
+
+    {% endblock %}
 </body>
 </html>
 

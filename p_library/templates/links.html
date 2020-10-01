@@ -5,22 +5,28 @@
     <title>Links</title>
 </head>
 <body>
-    <h3>Все роуты проекта</h3>
-    <a href="index/">Index</a>
-    <br>
-    <a href="publishers/">Издательства</a>
-    <br>
-    <a href="author/create/">Создать автора</a>
-    <br>
-    <a href="authors/">Список авторов</a>
-    <br>
-    <a href="author/create_many/">Создать несколько аворов</a>
-    <br>
-    <a href="author_book/create_many/">Создать несколько авторов и их книг</a>
-    <br>
-    <a href="friends/">Список друзей и взятых ими книг</a>
-    <br>
-    <a href="friends/create">Добавить друга</a>
+    {% extends 'base.html' %}
 
+    {% block content %}
+    <div class="ml-3">
+        <h3>Все роуты проекта:</h3>
+        <a href="index/">Index</a>
+        <br>
+        <a href="publishers/">Издательства</a>
+        <br>
+        <a href="author/create/">Создать автора</a>
+        <br>
+        <a href="authors/">Список авторов</a>
+        <br>
+        <a href="author/create_many/">Создать несколько аворов</a>
+        <br>
+        <a href="author_book/create_many/">Создать несколько авторов и их книг</a>
+        <br>
+        <a href="friends/">Список друзей и взятых ими книг</a>
+        <br>
+        <a href="friends/create">Добавить друга</a>
+    </div>
+
+    {% endblock %}
 </body>
 </html>

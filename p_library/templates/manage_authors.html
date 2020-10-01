@@ -5,14 +5,20 @@
     <title>Create multiple authors</title>
 </head>
 <body>
-    <form method="post">
-        {% csrf_token %}
-        {{ author_formset.management_form }}
-        {% for form in author_formset %}
-            {{ form.as_ul }}
-             <br>
-        {% endfor %}
-        <input type="submit" value="Сохранить"/>
-    </form>
+    {% extends 'base.html' %}
+
+    {% block content %}
+    <div class="ml-3">
+        <form method="post">
+            {% csrf_token %}
+            {{ author_formset.management_form }}
+            {% for form in author_formset %}
+                {{ form.as_ul }}
+                <br>
+            {% endfor %}
+            <input type="submit" value="Сохранить"/>
+        </form>
+    </div>
+    {% endblock %}
 </body>
 </html>

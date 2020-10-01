@@ -15,8 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+
+from my_site import settings
 from p_library import views
 from p_library.views import AuthorEdit, AuthorList, FriendEdit, FriendUpdate, FriendDelete, author_create_many, books_authors_create_many
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -34,3 +37,8 @@ urlpatterns = [
     path('friends/friend_edith/<int:pk>/', FriendUpdate.as_view(), name='friend_edith'),
     path('friends/friend_edith/<int:pk>/delete/', FriendDelete.as_view(), name='friend_delete'),
 ]
+
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

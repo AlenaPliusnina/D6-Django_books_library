@@ -5,10 +5,16 @@
     <title>Форма создания и редактирования Авторов</title>
 </head>
 <body>
-    <form method="post">
-	    {% csrf_token %}
-	    {{ form.as_p }}
-	    <input type="submit" value="Сохранить">
-    </form>
+    {% extends 'base.html' %}
+
+    {% block content %}
+    <div class="ml-3">
+        <form method="post">
+	        {% csrf_token %}
+	        {{ form.as_p }}
+	        <input type="submit" value="Сохранить">
+        </form>
+    </div>
+    {% endblock %}
 </body>
 </html>
