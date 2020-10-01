@@ -16,7 +16,7 @@
         <tbody>
             {% for book in books %}
             <tr>
-                <td><img src='{{ MEDIA_URL }}{{ book.image }}' alt="Обложка книги"/></td>
+                <td><img src='/media/{{ book.image }}' width="100" height="150" alt="Обложка книги"/></td>
                 <td>{{ book.title }}</td>
                 <td>{{ book.ISBN }}</td>
                 <td>{{ book.description }}</td>
